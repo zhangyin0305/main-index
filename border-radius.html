@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>border-radius</title>
+    <style>
+        .container{
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            /* border-radius设置圆角，支持像素或者百分比 */
+            /* border-radius: 10px; */
+            /* 最多到50% */
+            /* border-radius: 30%; */
+            /* border-top-left-radius: 100px; */
+            /* 前两位水平方向，后两位垂直方向
+            border-radius: 20px 30px 30px 20px;
+             */
+             /* border:40px solid crimson;
+             border-top-left-radius: 60px 25px;
+             border-top-right-radius: 50px; */
+             border: tomato;
+             border-radius: 20px 20px 20px 20px/30px 30px 30px 30px;
+        }
+
+        .contain {
+          width: 200px;
+          height: 200px;
+          background: aqua;
+
+
+        }
+
+        .contain1 {
+          margin-top: 100px;
+          width: 200px;
+          height: 200px;
+          border-radius: 200px;
+          background: red;
+        }
+        /* .contain .contain-nav . {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            
+
+          } */
+        
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="contain">
+      contain
+      <div class="contain-nav">
+        <div class="contain-nav-p1"></div>
+
+      </div>
+    </div>
+    <div class="contain1">
+      contain1
+        <div class="nav">
+
+        </div>
+      </div>
+
+
+ 
+  </body>
+</html>

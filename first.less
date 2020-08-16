@@ -1,0 +1,97 @@
+//less的嵌套使用
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    background:white;
+    .nav{
+        font-size: 12px
+    }
+    .content{
+        font-size:16px;
+        &:hover{
+            background:goldenrod ;
+        }
+    }
+}
+//less变量的使用
+@fontSize:12px;
+@bgColor:#aaafff;
+body{
+    margin:0 ;
+    padding: 0;
+}
+.wrapper{
+    //lighten使得颜色变浅
+    lighten(@bgColor,40%);
+    .nav{
+        font-size: @fontSize;
+    }
+    .content{
+        font-size: @fontSize+2px;
+        &:hover{
+            background: khaki;
+        }
+    }
+}
+//less mixin直接复制样式
+@fontSize:12px;
+@bgColor:green;
+.block(@fontSize){
+    font-size:@fontSize;
+    border:1px solid #ccd;
+    border-radius:4px ;
+}
+body{
+    padding:0;
+    margin:0;
+}
+.wrapper{
+    background:lighten(@bgColor);
+    .nav{
+        //.block(@fontSize)将.block的样式复制过来
+        .block(@fontSize);
+        }
+    .content{
+        .block(@fontSize+2px)
+        &:hover{
+            backgroung:yellow;
+        }
+        }
+    }
+}
+//less extend把选择器复制，相同的放在一起
+@fontSize:12px;
+@bgColor:#bbc;
+.block(@fontSize){
+    font-size:@fontSize;
+    border:1px solid #ddf;
+    border-radius: 4px;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    background:lighten(@bgColor);
+    .nav:extend(.block){
+    }
+    .content{
+        &:extend(.block);
+        &:hover{
+            background:#ffa;
+        }
+    }
+}
+// less循环
+// 递归效果
+.gen-col(@n) when (@n > 0){
+    .gen-col(@n - 1);
+    .col-@{n}{
+        width: 1000px/12*@n;
+    }
+}
+.gen-col(12);
+// less import
+// @import "./6-import-varible(文件名）";

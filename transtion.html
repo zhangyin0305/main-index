@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        /* 补间动画 */
+        .container{
+            width: 100px;
+            height: 100px;
+            border: 2px solid aqua;
+            background: steelblue;
+            /* 延迟可以以写在transition里，写在width前 */
+            transition: width 2s, background 3s;
+            /* transition-delay动画延迟
+            transition-delay: 1s; */
+            /* transition-timing-function 定义动画进度和时间的关系*/
+            transition-timing-function:ease-in-out ;
+
+        }
+        .container:hover{
+            width: 400px;
+            background: blueviolet;
+        }
+        /* 关键帧动画 */
+        .keytainer{
+            width: 100px;
+            height: 100px;
+            background: chocolate;
+            animation: run 1s;
+            /* animation-的一些其它的效果 */
+            /* animation-direction: reverse; */
+            /* 播放状态animation-play-state: running; */
+            /* 动画最后的位置状态animation-fill-mode: backwards; */
+        }
+        @keyframes run {
+            0%{
+                width: 100px;
+            }
+            20%{
+                width: 60px;
+            }
+            80%{
+                width: 800px;
+            }
+            100%{
+                width: 860px;
+            }
+        }
+        /* 逐帧动画 */
+        .antainer{
+            width: 100px;
+            height: 100px;
+            border: 1px solid aqua;
+            position: absolute;
+            left: 500px;
+            top: 100px;
+            background: url("./image.gif/a.jpg") no-repeat;
+            /* background-size:cover; */
+            animation: run 2s infinite;
+            /* animation-timing-function: steps(1);表示每次一个画面显示 */
+            /* animation-timing-function: steps(1); */
+        }
+        @keyframes run{
+            0%{
+                background-position: -960px -540px;
+            }
+            25%{
+                background-position: -980px -560px;
+            }
+            50%{
+                background-position: -1000px -600px;
+            }
+            100%{
+                background-position: -1100px -650px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container"></div>
+      <div class="keytainer"></div>
+      <div class="antainer"></div>
+  </body>
+</html>

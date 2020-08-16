@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>background1</title>
+    <style>
+        .container1{
+            width: 400px;
+            height: 300px;
+            border: 2px solid darkgoldenrod;
+            background: url(./image.gif/aa.jpg);
+            /* background设置背景图的位置 */
+            background-position: center;
+            background-repeat: no-repeat;
+            /* cover使得图片覆盖整个容器
+            background-size: cover; */
+            /* contain使得图片完整显示，多余的部分空白 */
+            background-size: contain;
+        }
+        /* 雪碧图的实现 */
+        .c1{
+            width: 60px;
+            height: 20px;
+            background: url(./image.gif/dd.jpg) no-repeat;
+            background-size: 60px 40px;
+            transition: background-position .4s;
+        }
+        .c1:hover{
+            background-position: 0 -20px;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="c1"></div>
+      </div>
+      <div class="container1">
+      </div>
+  </body>
+</html>
