@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+    padding: 0 10%;
+}
+.header{
+    width: 100%;
+    height: 480px;
+    background: black;
+    font-size: 0;
+}
+.header .header-banner{
+    height: 480px;
+    margin: 0 auto;
+}
+.header ul li{
+    display: inline-block;
+    position: relative;
+    width: 20%;
+}
+.header .header-nav img{
+    height: 480px;
+    opacity: 0.3;
+    width: 100%;
+    display: block;
+}
+.header-log{
+    width: 100%;
+    height: 280px;
+    position: absolute;
+    /* display: none; */
+    top: 0;
+}
+.header ul li:hover .header-log{
+    display: block;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(42, 199, 222, 0.96);
+    opacity: 0;
+    transition: .3s all;
+    visibility: hidden;
+}
+li:hover .logo {
+    top: 80%;
+}
+li:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+}
+.header-fog{
+    width: 100%;
+    height:110px ;
+    position: absolute;
+    top: 0;
+    display: inline-block;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    top: 130px;
+    left: 55px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    margin-left: -25px;
+    transition: .3s all;
+}
+.textword{
+    width: 50px;
+    height: 50px;
+    top: 80px;
+    left: 55px;
+    border-bottom:3px solid white;
+    position: absolute;
+    display: inline-block;
+}
+.float{
+    width: 100%;
+    top: 150px;
+    left: 47px;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    display: inline-block;
+}
+.header-ban{
+    width: 100%;
+    top: 180px;
+    left: 0px;
+    color: white;
+    background-color: turquoise;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    opacity: 0;
+    /* display: none; */
+    /* overflow: hidden; */
+}
+.header ul li:hover .header-ban{
+    display: block;
+    opacity: 1;
+}
+.header-ban a{
+    margin-top:20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+}
+@keyframes header-ban{
+    form{
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(200px);
+        opacity:1 ;
+    }
+}

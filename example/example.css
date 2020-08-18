@@ -1,0 +1,234 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+/* 关键帧 */
+@keyframes fadeIn{
+    form{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity:1 ;
+    }
+}
+/* 动画样式 */
+.fadeIn{
+    transform:translateY(100px);
+    opacity: 0;
+    animation: fadeIn 1s;
+    animation-fill-mode: forwards;
+}
+.fadeIndelay{
+    animation-delay: 1s;
+}
+header{
+    background: linear-gradient(to bottom,#3A2CAC,#631D9F);
+    height: 280px;
+    padding: 20px;
+}
+header nav{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+header nav a{
+    color: #f0f0f0;
+    text-decoration: none;
+}
+header nav a:hover{
+    color:#f90 ;
+}
+header nav .user{
+    float: right;
+}
+header nav li{
+    display: inline-block;
+    padding-right: 40px;
+}
+header .headermain{
+    width: 730px;
+    color: #f0f0f0;
+    margin: 50px auto;
+}
+header .headermain .contentmain{
+    float: right;
+}
+header .headermain h1{
+    line-height: 70px;
+}
+header .headermain:hover{
+    color: aqua;
+}
+
+.banner{
+    width: 690px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: -105px;
+    background: #f0f0f0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+/* 按内联样式,可以text-align设置居中 */
+.banner ul{
+    text-align: center;
+}
+.banner ul li{
+    display: inline-block;
+    width:180px ;
+    height:160px ;
+    text-align: center;
+}
+.banner ul li .feature{
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: #f90;
+}
+
+.main{
+    margin: 100px auto;
+    width: 720px;
+}
+.main .clock{
+    margin-bottom:100px ;
+    margin-left: -20px;
+}
+.main .clock .clocktext{
+    float: left;
+    width: 260px;
+    line-height: 50px;
+    color: #999;
+    font-size: 24px;
+    margin-left: 20px;
+}
+.main .clock  img{
+    float: left;
+    width: 420px;
+    height: 235px;
+    margin-left: 20px;
+    border-radius: 90%;
+}
+.main .clock::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.main .clock .clocktext h2{
+    font-size: 28px;
+    margin-bottom: 50px;
+}
+.main .clock .clock1{
+    margin-bottom: 30px;
+}
+footer{
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+@keyframes rolling{
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 30px 0;
+    }
+}
+.progress{
+    position: absolute;
+    width: 280px;
+    height: 15px;
+    left: 50%;
+    margin-left: -140px;
+    top: 22px;
+    border-radius:15px ;
+    background: linear-gradient(135deg, #999 0%,#999 33%,white 33%,white 66%,#999 66%,#999 100%);
+    background-size: 30px 15px;
+    animation: rolling .4s linear infinite;
+}
+/* 通过JS控制 */
+.progress .show{
+    display: block;
+}
+
+.dialogWrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.dialogWrapper .mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+.dialogWrapper .dialog{
+   position: fixed;
+   left: 50%;
+   top: 50%;
+   width: 500px;
+   height: 300px;
+    /* 与magin-left,magin-top同效果 */
+    transform: translate(-50%,-50%);
+    background: #f0f0f0;
+}
+.dialogWrapper .dialog .title{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    border: 1px solid #f0f0f0;
+    font-size: 20px;
+}
+.dialogWrapper .dialog .body{
+    padding: 30px 80px;
+}
+.dialogWrapper .dialog .body li{
+    line-height: 50px;
+    font-size: 20px;
+}
+.dialogWrapper .dialog .body li label{
+    display: inline-block;
+    width: 100px;
+}
+.dialogWrapper .dialog .body li input{
+    font-size: 20px;
+    border: 0 none;
+    border-bottom: 1px solid #ccc;
+    width: 230px;
+
+} 
+/* 用伪类将外面的框去掉 */
+.dialogWrapper .dialog .body li input:focus{
+    outline: 0 none;
+}
+.dialogWrapper .dialog .body li.operaterWrapper{
+    margin: 20px auto;
+}
+.dialogWrapper .dialog .body li.operaterWrapper button{
+    width: 140px;
+    height: 40px;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    font-size: 20px;
+    letter-spacing: 1em;
+    /* 文本缩进 */
+    text-indent: 1em;
+    /* 可点击的光标 */
+    cursor: pointer;
+    margin-right: 50px;
+}
+/* :last-of-type伪类元素,最后一个 */
+.dialogWrapper .dialog .body li.operaterWrapper button:last-of-type{
+    margin-right: 0;
+}
+.dialogWrapper .dialog .body li.operaterWrapper .primary{
+    background: #4990EF;
+    border:#4990EF ;
+    color: #f0f0f0;
+} 
