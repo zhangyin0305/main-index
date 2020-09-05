@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>vue的基础练习</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }} {{name}} 
+    </div>
+    <div id="text">
+        {{a}}
+    </div>
+    <div id="color">
+        <p>Using mustanches: {{ rawHTML }}</p>
+        <!-- <p>Using v-html directive: <span v-html="rawHTML"></span></p> -->
+        <p v-html="rawHTML"></p>
+        <div v-bind:class="color">xiaoxiao...</div>
+        <!-- 使用JavaScript的表达式 -->
+        <p>{{ '最帅的肖肖===zhanzhan' ? 'YES' : 'NO' }}</p>
+        <p>{{ message.split('').reverse().join('') }}</p>
+    </div>
+    <div id="order">
+        <p v-if="seen">xiaoxiao</p>
+        <a v-bind:href="url">zhanzhan</a>
+        <div @click="click1">
+            <!-- stop修饰符，停止继续执行 -->
+            <div @click.stop="click2"> 
+                xiaoxiao
+            </div>
+        </div>
+    </div>
+    <div id="style">
+        <div class="test" v-bind:class="{ active: isActive}" style="width: 200px;height: 200px;text-align: center;line-height: 200px;">
+            xiaoxiao
+        </div>
+        <!-- 内联样式 -->
+        <div :style="{color : color , fontSize : sixe , background : isBlack ? 'black' : ''}">
+            xiaoxiao
+        </div>
+    </div>
+    <div id="if">
+        <div v-if="type === 'A'">xiaoxiao</div>
+        <div v-else-if="type === 'B'">zhanzhan</div>
+        <div v-else-if="type === 'C'">xiaozhan</div>
+        <div v-else>Not xiaoxiao/zhanzhan/xiaozhan</div>
+        <h1 v-show="ok">xiaoxiao</h1>
+    </div>
+    <div id="example-1">
+        <ul>
+            <!-- v-for指令需要使用item in items形式的特殊语法，其中items是元数据数组，item则是被迭代的数组元素的别名 -->
+            <!-- <li v-for="item,index in items" :key="index">{{index}}{{ item.message }}</li> -->
+            <li v-for="item in items">
+                {{ item.message }}
+            </li>
+        </ul>
+        <ul>
+            <!-- v-for遍历一个对象的属性使用value in object -->
+            <li v-for="value,key in object" :key="key">{{key}} : {{ value }}</li>
+            <!-- <li v-for="value in object">
+                {{ value }}
+            </li> -->
+        </ul>id
+    </div>
+    <div id="example-2">
+        <div id="example-3">
+            <button v-on:click="counter += 1">数值： {{ counter }} </button><br/>
+            <!-- v-on接受要调用的函数的名称 -->
+            <button v-on:click="greet('肖肖是最帅的',$event)">xiaoxiao</button>
+        </div>
+    </div>
+    <div id="example-4">
+        <div class="example-5">
+            <!-- v-model的双向绑定 -->
+            <input v-model="message" placeholder="xiaoxiao">
+            <p>Message is: {{ message }}</p>
+            <br/>
+
+            <!-- 多选用数组保存 -->
+            <div>
+                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                <label for="jack">Jack</label>
+                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                <label for="john">John</label>
+                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                <label for="mike">Mike</label>
+                <br/>
+                <span>Checked names: {{ checkedNames }}</span>
+            </div>
+
+            <div>
+                <input type="radio" value="One" v-model="picked">
+                <label for="one">One</label>
+                <br/>
+                <input type="radio" value="Two" v-model="picked">
+                <label for="two">Two</label>
+                <br/>
+                <span>Picked: {{ picked }}</span>
+            </div>
+            <!-- 提交按钮，绑定click事件 -->
+            <button type="button" @click="submit">提交</button>
+        </div>
+    </div>
+    <div id="example-6">
+        <button-counter title="肖：" @clicknow="clicknow"></button-counter>
+        <test></test>
+    </div>
+    <div>
+        <div id="counter-event-example">
+            <p> {{ total }}</p>
+            <button-counter-1 v-on:increment="incrementTotal"></button-counter-1>
+            <button-counter-1 v-on:increment="incrementTotal"></button-counter-1>
+        </div>
+    </div>
+    <script type="text/javascript">
+    // 通过Vue函数创建一个Vue实例，new Vue的方式，返回一个应用对象
+    var app = new Vue({
+        // 两个重要属性：el元素；data保存数据
+        el:'#app',
+        data:{
+            message:'xiaoxiao',
+            name:'zanzan'
+        }
+    });
+    </script>
+    <script>
+        var data = {a:1};
+        var vm = new Vue({
+            el: '#text',
+            data: data
+        });
+        // data.a === vm.a  效果一样
+        data.a = "Hi ... xiaoxiao..."
+        // vm.a = "Hi zhanzhan ...";   
+
+        // $watch是一个实例方法，观察一个变量的变化，变化前的值和变化后的值
+        vm.$watch('a',function(newVal,oldVal) {
+            console.log(newVal, oldVal);
+        })
+        vm.$data.a = "xiaoxiao..."
+    </script>
+    <script>
+        var vn = new Vue({
+            el: '#color',
+            data: {
+                rawHTML: '<span style="color:red">this is should be red</span>',
+                color: 'green',
+                ok: 'zhanzhan',
+                message: 'xiaoxiao'
+            }
+        });
+    </script>
+    <style>
+        .green{
+            color: aqua;
+            font-size: 60px;
+        }
+    </style>
+
+
+    <!-- 模板语法--指令 v-if-->
+    <script>
+        var point = new Vue ({
+            el: "#order",
+            data: {
+                seen: true,
+                url: "#"
+            },
+            // 属性
+            methods: {
+                click1 : function () {
+                    console.log('xiaoxiao......');
+                },
+                click2 : function () {
+                    console.log('zhanzhan......');
+                }
+            }
+        });       
+    </script>
+
+    <!-- class与style绑定 -->
+    <script>
+        var style = new Vue ({
+            el: "#style",
+            data: {
+                isActive: true,
+                color: 'green',
+                sixe: '50px',
+                isBlack: true
+            }
+        });
+    </script>
+    <style>
+        .test{
+            font-size: 45px;
+            color: darksalmon;
+        }
+        .active{
+            background: cornflowerblue;
+        }
+    </style>
+
+    <!-- 条件渲染 -->
+    <script>
+        var vn = new Vue({
+            el: ("#if"),
+            data: {
+                type: "A",
+                ok: true
+            }
+        });
+    </script>
+
+    <!-- 列表渲染 -->
+    <script>
+        // v-for指令基于一个数组来渲染一个列表
+        // v-for遍历一个对象的属性
+        var example1 = new Vue({
+            el: ("#example-1"),
+            data: {
+                items: [
+                    { message:'xiaoxiao'},
+                    { message:'xiaozhan'}
+                ],
+                object: {
+                    title: 'What is your nme?',
+                    author: 'xiaoxiao',
+                    publishedAt: '2020-10-05'
+                }
+            }
+        });
+    </script>
+
+
+    <!-- 事件处理 -->
+    <script>
+        var button = new Vue({
+            el: "#example-2",
+            data: {
+                counter: 0,
+                // name: "vue"
+            },
+            methods: {
+                greet: function (str,e){
+                    alert(str);
+                    console.log(e);
+                }
+            }
+        });
+    </script>
+
+    <!-- 表单输入绑定 -->
+    <script>
+        var example4 = new Vue ({
+            el: ("#example-4"),
+            // 设置改变data的属性，设置默认值
+            data: {
+                message: "",
+                checkedNames: [],
+                picked: "One"
+            },
+            methods: {
+                submit : function(){
+                    // alert(this.message)
+                    var postObj = {
+                        msg : this.message,
+                        checkval: this.checkedNames
+                    };
+                    console.log(postObj);
+                }
+            }
+        });
+    </script>
+
+    <!-- 组件基础 -->
+    <script>
+        Vue.component('button-counter', {
+            props: ['title'],
+            data:function () {
+                return {
+                    count: 0
+                }
+            },
+            // 通过组件的属性给组件赋值,只能有一个根节点
+            // template: '<button v-on:click="count++">{{ title }}xiaoxiao {{ count }} </button>'
+            template: '<div><button v-on:click="clickfun">{{ title }}xiaoxiao {{ count }} </button></div>',
+            methods: {
+                clickfun : function (){
+                    this.count ++;
+                    this.$emit('clicknow',this.count);
+                }
+            }
+        });
+        var example6 = new Vue ({
+            el: "#example-6",
+            data: {
+            },
+            methods: {
+                clicknow : function (e){
+                    console.log(e);
+                }
+            },
+            components: {
+                test : {
+                    template: "<h2>xiaoxiao</h2>"
+                }
+            }
+        });
+    </script>
+
+    <!-- 自定义组件 -->
+    <script>
+        Vue.component('button-counter-1', {
+            template: '<button v-on:click="incrementHandler">{{ counter }}</button>',
+            data: function (){
+                return{
+                    counter: 0
+                }
+            },
+            methods: {
+                incrementHandler : function (){
+                    this.counter+=1;
+                    this.$emit('increment');
+                }
+            }
+        });
+        new Vue ({
+            el: '#counter-event-example',
+            data: {
+                total:0 
+            },
+            methods: {
+                incrementTotal: function (){
+                    this.total +=1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

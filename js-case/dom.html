@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建立对象</title>
+</head>
+<body onload="start()">
+    <!-- <script>
+        function Person(first, last, age, gender, interests){
+            this.name={
+                'first':first,
+                'last':last
+            };
+            this.age=age;
+            this.gender=gender;
+            this.interests=interests;
+            this.bio=function(){
+                alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+            };
+            this.greeting=function(){
+                alert('Hi I\m'+this.name.first+'.');
+            };
+        };
+        var Person1= new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+    </script> -->
+    
+</body>
+<script>
+    function start(){
+        var mybody=document.getElementsByTagName("body").item(0);
+        mytable=document.createElement("TABLE");
+        mytableobody=document.createElement("TBODY");
+        for(j=0;j<2;j++){
+            mycurrent_row=document.createElement("TR");
+            for(i=0;i<2;i++){
+                mycurrent_cell=document.createElement("TD");
+                currenttext=document.createTextNode("cell is:"+i+j);
+                mycurrent_cell.appendChild(currenttext);
+                mycurrent_row.appendChild(mycurrent_cell);
+                if(i==0){
+                    mycurrent_cell.style.background="rgb(255,0,0)";
+                }else{
+                    mycurrent_cell.style.display="none";
+                }
+            }
+            mytableobody.appendChild(mycurrent_row);
+        }
+        mytable.appendChild(mytableobody);
+        mybody.appendChild(mytable);
+    }
+</script>
+</html>

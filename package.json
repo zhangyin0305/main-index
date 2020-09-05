@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zhangyin0305/html/issues"
   },
-  "homepage": "https://github.com/zhangyin0305/html#readme"
+  "homepage": "https://github.com/zhangyin0305/html#readme",
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
 }

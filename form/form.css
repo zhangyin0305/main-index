@@ -1,0 +1,174 @@
+.noFill {
+    fill: none;
+}
+.main{
+    width: 750px;
+    height: 1334px;
+    background-color: #fff;
+    margin: 60px auto;
+    position: relative;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.25);
+}
+/* 头部样式 */
+.header{
+    height: 156px;
+    margin-bottom: 36px;
+    background:rgba(38,185,154,1);
+    box-shadow:0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-radius: 0px 0px 16px 16px;
+}
+.header .text{
+    width: 690px;
+    height: 104px;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 400;
+    text-indent: 18px;
+    margin: 26px 30px;
+    border: 0px;
+    outline: none;
+    background:rgba(96,198,175,1);
+    border-radius: 24px 100px 100px 24px;
+}
+.header input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header input:-moz-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header input::-moz-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+.header .add{
+    width:104px;
+    height:104px;
+    background:rgba(255,255,255,1);
+    border-radius:52px;
+    position: absolute;
+    top: 26px;
+    right: 30px;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+}
+header .add svg {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -19px 0 0 -19px;
+}
+.header .add svg .fill{
+    fill: #25b99a;
+    
+}
+/* 列表样式 */
+.container{
+    width: 100%;
+    
+}
+.container .todo li .textline{
+    width: 690px;
+    height: 104px;
+    font-size: 34px;
+    margin-left: 30px;
+    background:rgba(255,255,255,1);
+    box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.1);
+    border-radius:24px;
+    position: relative;
+    float: left;
+    outline: none;
+}
+.container .todo li .text-display{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.container .todo li .textline-input{
+    width: 617px;
+    height: 64px;
+    border: none;
+    margin-top: 20px;
+    border-right:1px solid #cccccc;
+}
+/* .container .todo li .textline-input .textline-display{
+    width: 530px;
+    height: 64px;
+    font-size: 30px;
+    text-indent: 18px;
+    border: none;
+    outline: none;
+} */
+.container .todo li .text-input{
+    margin-top: 24px;
+}
+.container .todo li .button{
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(38,185,154,1);
+    position: absolute;
+    right: 19px;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.container .todo li .main-button{
+    top: 37px;
+    background: rgba(255,255,255,1);
+}
+.container .todo li .main-button svg {
+    width: 34px;
+    height: 34px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    margin: -17px 0 0 -17px;
+}
+.container .todo li .main-button svg .fill{
+    fill: #25b99a;
+}
+.container .todo li .branch-button{
+    top: 37px;
+    background: rgba(38,185,154,1);
+}
+.container .todo li .branch-button svg {
+    width: 34px;
+    height: 34px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    margin: -17px 0 0 -17px;
+}
+.container .todo li .branch-button svg .fill{
+    fill: rgba(255,255,255,1);
+}
+
+.container .todo li .textline-input .index-button{
+    width: 34px;
+    height: 34px;
+    border: none;
+    position: absolute;
+    top: 38px;
+    right: 95px;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #fff;
+}
+.container .todo li .textline-input .index-button svg{
+    fill: #cccccc;
+}
+.container .completed li .textline-input .index-button svg{
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    margin: -17px 0 0 -17px;
+}
+.container .completed li .textline-input .index-button svg  .fill{
+    fill:#cccccc;
+}
